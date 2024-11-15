@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: CodifySpring4
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://172.17.0.4:5432/codify_test_db
+    username: postgres
+    password: postgres
+#  jpa:
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    show-sql: true
+  flyway:
+    baseline-on-migrate: true
+    out-of-order: true
+
+my:
+  value: Тестируем Spring!
+
+jwt:
+  token:
+    secret: f4d7760e512adce4e410351c6f1d3cda79cc25923e7b6a06b7633e21dfa85106
+    expired: 3600000
