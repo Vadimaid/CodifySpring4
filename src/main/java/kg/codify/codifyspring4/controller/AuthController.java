@@ -33,6 +33,6 @@ public class AuthController {
 
     @GetMapping(value = "/asd")
     public String asd() {
-        return "asd";
+        return "ASD";
     }
 }
