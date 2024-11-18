@@ -7,6 +7,7 @@ import kg.codify.codifyspring4.service.TeacherService;
 import kg.codify.codifyspring4.service.impl.TeacherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,5 +61,13 @@ public class TeacherController {
     ) {
         System.out.println("Якобы тут обновляется учитель");
         return source;
+    }
+
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    @DeleteMapping(value = "/remove/{id}")
+    public void fireTeacher(
+            @PathVariable(value = "id") Long teacherId
+    ) {
+        System.out.println("Тут якобы увольняется учитель " + teacherId);
     }
 }
